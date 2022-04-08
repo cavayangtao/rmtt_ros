@@ -75,13 +75,13 @@ if __name__ == '__main__':
     rospy.init_node('tag_tracker')
 
     # params
-    tag_id = rospy.get_param('~tag_id', '586')
+    tag_id = rospy.get_param('~tag_id', '5')
     tag_name = "tag_" + str(tag_id)
     track_distance = rospy.get_param("~track_distance", 0.8)
 
     # sub and pub
     tag_sub = rospy.Subscriber('tag_detections', AprilTagDetectionArray, tag_callback, queue_size=1)
-    vel_pub = rospy.Publisher('cmd_vel', Twist, queue_size=1)
+    vel_pub = rospy.Publisher('cmd_vel_tag', Twist, queue_size=1)
 
     # dynamic reconfigure
     srv = Server(tracker_pidConfig, pid_cb)
