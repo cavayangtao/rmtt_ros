@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding:utf-8 -*-
 
-from time import sleep
 import rospy
 from std_msgs.msg import String, UInt8, ColorRGBA
 from geometry_msgs.msg import PoseStamped
@@ -15,7 +14,7 @@ def pad_id_callback(msg):
         pub_mled.publish(str(1))
 
 def pose_callback(msg):
-    global start_time, start_timing, test_time
+    global start_timing
 
     pos_x = msg.pose.position.x
     pos_y = msg.pose.position.y
@@ -36,7 +35,7 @@ def pose_callback(msg):
     diff_radar1_y = pos_y - radar1_y
     rho_radar1 = np.hypot(diff_radar1_x, diff_radar1_y)
 
-    # print(rho_start, rho_goal, rho_radar)
+    # print(rho_start, rho_goal, rho_radar, rho_radar1)
 
     if rho_start < start_r:
         pub_mled.publish(str(2))
@@ -50,26 +49,21 @@ def pose_callback(msg):
         led.b = 0
         pub_led.publish(led)
         time.sleep(0.1)
-
-    if start_timing == 0:
-        test_time = datetime.datetime.now() - start_time
-        rospy.loginfo('test time: ' + str(test_time))
-    if start_timing == 1:
-        rospy.loginfo('test time: ' + str(test_time))
             
 if __name__ == "__main__":
     start_x = -1.2
     start_y = -1.2
-    start_r = 0.3   
+    start_r = 0.5   
     goal_x = 1.2
     goal_y = 1.2
     goal_r = 0.3
     radar_x = 0
     radar_y = -0.6
-    radar_r = 0.5
+    radar_r = 0.3
     radar1_x = 0.3
     radar1_y = 1.2
-    radar1_r = 0.4
+    radar1_r = 0.2
+    test_time = 0
     start_timing = 0
     
     # 初始化ROS节点    
@@ -89,5 +83,13 @@ if __name__ == "__main__":
         time.sleep(0.1)
     start_time = datetime.datetime.now()
     rospy.loginfo('start timing!')
+
+    while not rospy.is_shutdown():
+        if start_timing == 0:
+            test_time = datetime.datetime.now() - start_time
+            rospy.loginfo('test time: ' + str(test_time))
+        if start_timing == 1:
+            rospy.loginfo('test time: ' + str(test_time))
+        time.sleep(0.01)
 
     rospy.spin()
