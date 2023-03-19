@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # coding=utf-8
 # 环境准备：pip install opencv_contrib_python
-# 输入话题：tianbot_mini/image_raw/compressed
+# 输入话题：/image_raw/compressed
 # 输出话题：roi
 
 import sys
