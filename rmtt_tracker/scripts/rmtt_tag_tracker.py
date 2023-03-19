@@ -81,7 +81,7 @@ if __name__ == '__main__':
 
     # sub and pub
     tag_sub = rospy.Subscriber('tag_detections', AprilTagDetectionArray, tag_callback, queue_size=1)
-    vel_pub = rospy.Publisher('cmd_vel_tag', Twist, queue_size=1)
+    vel_pub = rospy.Publisher('cmd_vel', Twist, queue_size=1)
 
     # dynamic reconfigure
     srv = Server(tracker_pidConfig, pid_cb)
