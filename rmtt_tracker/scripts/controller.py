@@ -12,8 +12,6 @@ pid_w = [0.5, 0, 0] # pid parameters of yaw channel
 pid_h = [0.8, 0, 0] # pid parameters of up channel
 pid_f = [0.8, 0, 0] # pid parameters of forward channel
 
-
-
 if __name__ == '__main__':
 
     rospy.init_node('pid', anonymous=True)
