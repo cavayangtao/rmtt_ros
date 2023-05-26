@@ -4,7 +4,7 @@
 
 # ROS
 import rospy
-from rmtt_core18 import tt_driver
+from rmtt_core18 import RoboMasterTelloTalent
 
 if __name__ == '__main__':
     robomaster_node_name = rospy.get_name()
@@ -14,7 +14,5 @@ if __name__ == '__main__':
     rospy.loginfo('Running until shutdown (Ctrl-C).')
     # Initialize ROS node
     rospy.init_node('tt_driver_node', anonymous=False)
-    try:
-        driver = tt_driver()
-    except rospy.ROSInterruptException:
-        pass
+    with RoboMasterTelloTalent() as rmtt_drone:
+        rmtt_drone.run()
