@@ -1,3 +1,18 @@
+rmtt_node.py is tested in Ubuntu20.04/ROS Noetic.
+
+rmtt_node18.py is tested in Ubuntu18.04/ROS Melodic.
+
+To run rmtt_node18.py:
+```
+conda create -n py38 python=3.8
+conda activate py38
+pip install robomaster==0.1.1.63
+pip install rospkg
+pip install pyyaml
+pip install scipy
+```
+add "-i https://pypi.tuna.tsinghua.edu.cn/simple" when run pip install in China.
+
 RoboMaster Tello Talent ROS Driver. Developed by Tianbot
 
 
