@@ -1,6 +1,6 @@
-rmtt_node.py is tested in Ubuntu20.04/ROS Noetic.
+rmtt_node.py is tested in Ubuntu 20.04/ROS Noetic.
 
-rmtt_node18.py is tested in Ubuntu18.04/ROS Melodic.
+rmtt_node18.py is tested in Ubuntu 18.04/ROS Melodic.
 
 To run rmtt_node18.py:
 ```
