@@ -15,8 +15,8 @@ def callback(msg):
     roll, pitch, yaw = euler_from_quaternion([msg.pose.orientation.x, msg.pose.orientation.y, msg.pose.orientation.z, msg.pose.orientation.w])
     
     # Rotate the pose by 180 degrees around y axis
-    yaw += np.deg2rad(180)
-    qx, qy, qz, qw = quaternion_from_euler(roll, pitch, yaw)
+    pitch -= np.deg2rad(180)
+    qx, qy, qz, qw = quaternion_from_euler(yaw, -pitch, roll)
 
     # Create a new PoseStamped message with the rotated position and orientation
     new_msg = PoseStamped()
