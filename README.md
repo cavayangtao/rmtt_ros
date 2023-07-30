@@ -15,6 +15,13 @@ pip install scipy
 ```
 add "-i https://pypi.tuna.tsinghua.edu.cn/simple" when run pip install in China.
 
+In the workspace of rmtt_ros:
+```
+catkin_make
+source devel/setup.bash
+roslaunch rmtt_driver rmtt_bringup.launch
+```
+
 RoboMaster Tello Talent ROS Driver is developed initially for [NPU-RoboCourse](https://github.com/cavayangtao/npurobocourse) through the cooperation of [NPU-USRI](https://wurenxitong.nwpu.edu.cn/) and Tianbot.
 
 
