@@ -128,7 +128,7 @@ loopGetFrame = False
 if __name__ == '__main__':
  
     rospy.init_node('tbm_tld_tracker_node')
-    rospy.Subscriber("/image_raw", sensor_msgs.msg.CompressedImage, compressed_detect_and_draw)
+    rospy.Subscriber("/image_raw/compressed", sensor_msgs.msg.CompressedImage, compressed_detect_and_draw)
     pub = rospy.Publisher("roi",ROI,queue_size=10)
     tld_roi = ROI()
     # rate = rospy.Rate(10)
