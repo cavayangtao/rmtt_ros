@@ -55,13 +55,13 @@ if __name__ == "__main__":
     start_y = -1.25
     start_r = 0.35   
     goal_x = 1.25
-    goal_y = -1.25
+    goal_y = 1.25
     goal_r = 0.35
     radar_x = 0
-    radar_y = -1.25
+    radar_y = -0.6
     radar_r = 0.6
-    radar1_x = 0.75
-    radar1_y = 0.75
+    radar1_x = 0.3
+    radar1_y = 1.2
     radar1_r = 0.5
     test_time = 0
     start_timing = 0
